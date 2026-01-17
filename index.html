@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YourHome - Pakistan's #1 Real Estate Platform</title>
+
+    <meta
+      name="description"
+      content="YourHome - Buy, Sell, or Rent properties in Pakistan."
+    />
+    <meta name="author" content="Awais Baddar" />
+    <meta name="keywords" content="property, real estate, Pakistan" />
+
+    <!-- ✅ CSS FILE -->
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <span>YourHome</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="btn-toggle" onclick="toggleView()">Switch View</button>
+        </li>
+      </ul>
+      <button class="mobile-menu-toggle">☰</button>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+      <h1>Find Your Dream Home in Pakistan</h1>
+      <p>
+        Buy, Sell, or Rent with Pakistan's Most Trusted Real Estate Platform
+      </p>
+      <div class="search-container">
+        <div class="search-controls">
+          <select id="propertyType" onchange="filterProperties()">
+            <option value="">All Property Types</option>
+            <option value="Residential">Residential</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Agricultural">Agricultural</option>
+          </select>
+          <select id="city" onchange="filterProperties()">
+            <option value="">All Cities</option>
+            <option value="Karachi">Karachi</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Islamabad">Islamabad</option>
+            <option value="Rawalpindi">Rawalpindi</option>
+          </select>
+          <select id="priceRange" onchange="filterProperties()">
+            <option value="">Any Price</option>
+            <option value="0-5M">0 - 5M PKR</option>
+            <option value="5M-10M">5M - 10M PKR</option>
+            <option value="10M-50M">10M - 50M PKR</option>
+            <option value="50M+">50M+ PKR</option>
+          </select>
+          <button class="search-btn" onclick="filterProperties()">
+            🔍 Search Properties
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROPERTIES SECTION ===== -->
+    <section class="section" id="properties">
+      <div class="container">
+        <h2 class="section-title">Featured Properties</h2>
+        <p class="section-subtitle">
+          Explore our latest listings across Pakistan
+        </p>
+        <div id="propertiesContainer" class="properties-grid"></div>
+      </div>
+    </section>
+
+    <!-- ===== STATS SECTION ===== -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3>5,000+</h3>
+            <p>Properties Listed</p>
+          </div>
+          <div class="stat-item">
+            <h3>50,000+</h3>
+            <p>Happy Customers</p>
+          </div>
+          <div class="stat-item">
+            <h3>24/7</h3>
+            <p>Customer Support</p>
+          </div>
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Trusted Platform</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>About Us</h4>
+            <p>
+              YourHome is Pakistan's leading real estate platform, connecting
+              buyers, sellers, and renters for over a decade. We provide
+              transparent, reliable, and hassle-free property transactions.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#properties">Properties</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact Info</h4>
+            <p>📍 Karachi, Lahore, Islamabad</p>
+            <p>📞 +92-300-1234567</p>
+            <p class="footer-email">✉️ m.awaisbaddar@gmail.com</p>
+          </div>
+          <div class="footer-section">
+            <h4>Follow Us</h4>
+            <p>
+              <a href="#">Facebook</a> | <a href="#">Instagram</a> |
+              <a href="#">Twitter</a>
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 YourHome Property Dealers. All rights reserved. 🇵🇰</p>
+          <p
+            style="
+              font-size: 0.9rem;
+              margin-top: 0.5rem;
+              color: rgba(255, 255, 255, 0.8);
+            "
+          >
+            Developed by <strong>Awais Baddar</strong> | Full Stack Developer
+          </p>
+          <p
+            style="
+              font-size: 0.85rem;
+              margin-top: 0.5rem;
+              color: rgba(255, 255, 255, 0.7);
+            "
+          >
+            All inquiries →
+            <span class="footer-email">m.awaisbaddar@gmail.com</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== PROPERTY DETAILS MODAL ===== -->
+    <div id="propertyModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Property Details</h2>
+          <button class="close-btn" onclick="closeModal()">&times;</button>
+        </div>
+        <div id="modalBody"></div>
+        <form id="inquiryForm" onsubmit="submitInquiry(event)">
+          <h3 style="color: var(--primary-color); margin-bottom: 1rem">
+            Interested? Send Inquiry to m.awaisbaddar@gmail.com
+          </h3>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" required placeholder="Your full name" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" required placeholder="Your email" />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" required placeholder="+92-3XX-XXXXXXX" />
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea
+              required
+              placeholder="Tell us why you're interested..."
+            ></textarea>
+          </div>
+          <button type="submit" class="property-action-btn">
+            Send Inquiry to Agent
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!--  JS FILE -->
+    <script src="/app.js"></script>
+  </body>
+</html>
