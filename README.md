@@ -1,2 +1,2 @@
 # demo1
-Short Static Site
+Static Website Personal Learning
